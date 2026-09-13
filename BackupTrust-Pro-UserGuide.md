@@ -45,6 +45,53 @@ After preparation, a missing source still aborts. A plan with no reachable desti
 
 Proactive preparation occurs before a run reaches its normal availability gates. The existing three-minute reconnect wait applies only when a destination disappears after copying has started. SMB Connect auto-reconnect may restore that active mount, but it is a different workflow from the Pro pre-run request.
 
+## Encryption
+
+A destination can be encrypted, so files written there are unreadable without its
+recovery key. Each file becomes an Apple Encrypted Archive with an added `.aea`
+extension. The choice is per destination, so one plan can copy to a local drive in
+the clear and to a NAS encrypted in the same run.
+
+Pro holds only the public half of the key, which is all that encrypting needs. So a
+scheduled run needs no password and cannot be stopped by a locked Keychain, this
+Mac cannot read its own encrypted backups, and **the recovery key file saved when
+the key is created is the only way to decrypt them.** Lose it and the backups are
+unrecoverable by anyone.
+
+**Setting up:** Settings → Encryption → **Create Key…**, save the recovery key file
+somewhere separate from the backup, then choose that key from the lock menu under a
+destination in the plan editor. **Encrypt all destinations with…** applies one key
+across a plan, including the overflow destination — assign it there too, or
+oversized and long-named files land in the clear, which the editor warns about.
+
+**On the destination**, a `BackupTrust` folder appears holding `encryption.json`
+(which key this folder uses, by name and fingerprint; no secret in it),
+`README-RESTORE.txt`, and an executable `restore-encrypted-backup.sh` that restores
+the folder with only `aea`, part of macOS 12 and later.
+
+**Checking a backup opens:** Settings → Encryption → **Test a Restore…** decrypts a
+sample with the recovery key and names anything that fails, decrypting in memory so
+no plaintext is written. This is not the same as **Verify after copy**, which on an
+encrypted destination can only confirm that a complete, readable archive landed —
+all a machine holding no private key can confirm. Run Test Restore after setting up
+an encrypted plan, and occasionally afterwards.
+
+**What is not hidden:** filenames, folder structure, file sizes and modification
+dates stay visible on the destination. Only contents are encrypted.
+
+**Turning encryption on for a destination that already holds backups** re-copies
+everything in encrypted form and leaves the unencrypted copies in place, with a
+warning naming how many. Mirroring will not remove them; delete them yourself once
+the encrypted copies check out.
+
+**Two limits:** a folder holds one key — pointing a different key at a folder that
+already has encrypted files is refused, so use a different folder. And on Synology
+DSM 7 encrypted shares the ~143-byte filename component limit drops to 139 for
+encrypted destinations, because `.aea` spends four bytes.
+
+What to try in this testing build, and what to report, is in
+[ENCRYPTION-TESTING.md](ENCRYPTION-TESTING.md).
+
 ## Updates and Support
 
 BackupTrust Pro includes **Check for Updates…** because it is distributed outside the Mac App Store. Nothing is downloaded or installed automatically. Use **Settings → Logs** and the correlated session and diagnostic entries when troubleshooting.

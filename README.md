@@ -1,8 +1,8 @@
 # BackupTrust Pro
 
-BackupTrust Pro is the direct-access edition of BackupTrust for scheduled, incremental folder backup on macOS. The current testing release is **2.0 (20)**.
+BackupTrust Pro is the direct-access edition of BackupTrust for scheduled, incremental folder backup on macOS. The current testing release is **2.1 (21)**.
 
-It includes backup plans and schedules, verification, overflow routing, destination locking, reconnect waiting, diagnostics, logs, pre- and post-backup scripts, self-managed update checking, and opt-in proactive SMB preparation through SMB Connect 0.7.4 or later.
+It includes backup plans and schedules, verification, overflow routing, destination locking, reconnect waiting, diagnostics, logs, per-file encryption of chosen destinations, pre- and post-backup scripts, self-managed update checking, and opt-in proactive SMB preparation through SMB Connect 0.7.4 or later.
 
 BackupTrust Pro has its own bundle identifier, display name, update behavior, and operator guidance. It does not replace or alter the sandboxed BackupTrust Standard edition.
 
@@ -18,7 +18,9 @@ BackupTrust Pro never reads SMB endpoints, passwords, or SMB Connect Keychain it
 
 - [BackupTrust Pro User Guide](BackupTrust-Pro-UserGuide.md)
 - [BackupTrust Pro Workflows](BackupTrust-Workflows.md)
-- [Release notes](RELEASE-NOTES-2.0-BUILD-20.md)
+- [Release notes](RELEASE-NOTES-2.1-BUILD-21.md)
+- [Encryption testing guide](ENCRYPTION-TESTING.md)
+- [Earlier release notes: 2.0 (20)](RELEASE-NOTES-2.0-BUILD-20.md)
 - [Changelog](CHANGELOG.md)
 
 ## Distribution
