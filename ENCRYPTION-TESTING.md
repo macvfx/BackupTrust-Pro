@@ -45,7 +45,12 @@ The destination should now hold `.aea` files plus a `BackupTrust` folder contain
 - **Test a Restore…** (Settings → Encryption) against that destination with the
   recovery key. It should report decrypting a sample. Try it with a *different*
   key file too: it should refuse before decrypting anything.
-- **Restore for real without the app**, which is the point of the design:
+- **Restore for real, in the app:** Settings → Encryption → **Restore Files…**, or the
+  **Restore…** button beside the destination in the plan editor. Choose the backup,
+  the recovery key and an output folder. Check that the structure comes back, that
+  dates look right, and that a file already present in the output folder is left
+  alone rather than replaced — then try again with the replace option on.
+- **Restore without the app at all**, which is the point of the design:
 
   ```
   "<destination>/BackupTrust/restore-encrypted-backup.sh" \
@@ -82,6 +87,9 @@ anything, and say which storage the destination was on.
 ## Known limits in this build
 
 - **Not tested against a real SMB NAS or LucidLink volume.** Local disks only.
+- **Neither interface has been used by a person yet** — they are covered by
+  automated tests of the logic underneath. The restore flow writes files, so try it
+  on a scratch folder before trusting it with anything that matters.
 - **A folder holds one key.** Pointing a different key at a folder that already
   has encrypted files is refused; use a different folder.
 - **Turning encryption on for a destination that already holds backups** re-copies

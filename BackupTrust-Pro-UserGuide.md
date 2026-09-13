@@ -69,7 +69,23 @@ oversized and long-named files land in the clear, which the editor warns about.
 `README-RESTORE.txt`, and an executable `restore-encrypted-backup.sh` that restores
 the folder with only `aea`, part of macOS 12 and later.
 
-**Checking a backup opens:** Settings → Encryption → **Test a Restore…** decrypts a
+**Restoring:** Settings → Encryption → **Restore Files…**, or the **Restore…**
+button beside an encrypted destination in the plan editor. Choose the backup, its
+recovery key file and a destination folder; the structure is rebuilt and restored
+files keep their original dates. Existing files are skipped rather than replaced
+unless you ask, previous versions are excluded unless you ask, and a file that
+fails to decrypt is named while the rest still restore.
+
+**Checking a backup opens** without restoring anything: Settings → Encryption →
+**Test a Restore…** decrypts a
+sample with the recovery key and names anything that fails, decrypting in memory so
+no plaintext is written. This is not the same as **Verify after copy**, which on an
+encrypted destination can only confirm that a complete, readable archive landed —
+all a machine holding no private key can confirm. Run Test Restore after setting up
+an encrypted plan, and occasionally afterwards.
+
+**Checking a backup opens** without restoring anything: Settings → Encryption →
+**Test a Restore…** decrypts a
 sample with the recovery key and names anything that fails, decrypting in memory so
 no plaintext is written. This is not the same as **Verify after copy**, which on an
 encrypted destination can only confirm that a complete, readable archive landed —

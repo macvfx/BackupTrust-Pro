@@ -1,5 +1,16 @@
 # BackupTrust Pro Changelog
 
+## 2.2 (22) — 2026-09-14 — Testing prerelease
+
+- Added restoring encrypted backups from inside the app: **Restore Files…** in Settings → Encryption, and a **Restore…** button beside each encrypted destination in the plan editor. Until now this needed the restore script and a Terminal window.
+- The original folder structure is rebuilt and restored files keep their original modification dates.
+- Files already present in the restore folder are skipped rather than replaced unless asked, and previous versions under `_BackupVersions` are excluded unless asked for.
+- The recovery key is checked against the backup's marker when chosen, so a wrong key is refused before anything is written.
+- A pre-flight reports the file count and size and refuses to start when the restore folder lacks room. One file failing to decrypt is named in the summary while the rest still restore.
+- **Test a Restore…** is unchanged and still writes nothing: it decrypts a sample in memory to prove a backup opens.
+
+Automated validation covered the restore path directly: structure and contents, original dates, existing files left alone by default and replaced only on request, versions excluded then included, a wrong key refused before writing, one damaged file not stopping the others, cancellation, and the pre-flight counts. No run was made against an SMB NAS or a LucidLink volume, and neither the encryption nor the restore interface has yet been exercised by a person.
+
 ## 2.1 (21) — 2026-09-13 — Testing prerelease
 
 - Added per-file encryption of chosen destinations, including the overflow destination. Files written to an encrypted destination become Apple Encrypted Archives with an added `.aea` extension.
