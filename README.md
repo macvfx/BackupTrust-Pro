@@ -20,7 +20,7 @@ BackupTrust Pro never reads SMB endpoints, passwords, or SMB Connect Keychain it
 - [BackupTrust Pro Workflows](BackupTrust-Workflows.md)
 - [Release notes](RELEASE-NOTES-2.2-BUILD-22.md)
 - [Encryption testing guide](ENCRYPTION-TESTING.md)
-- Earlier release notes: [2.1 (21)](RELEASE-NOTES-2.1-BUILD-21.md), [2.0 (20)](RELEASE-NOTES-2.0-BUILD-20.md)
+- Earlier release notes: [2.1 (21)](RELEASE-NOTES-2.1-BUILD-21.md), [2.0 (20)](docs/releases/RELEASE-NOTES-2.0-BUILD-20.md)
 - [Changelog](CHANGELOG.md)
 
 ## Distribution
