@@ -1,5 +1,16 @@
 # BackupTrust Pro Changelog
 
+## 2.3 (23) — 2026-09-20 — Testing prerelease
+
+- Match the actual mounted ancestor of a selected folder, including nested Lucid mounts, while rejecting stale mount directories.
+- Use saved paths directly in Pro instead of substituting bookmark-resolved paths.
+- Add **Refresh Paths** in the plan editor's Diagnostics section: check availability without starting a backup or requesting mounts, with results in App Diagnostics.
+- For detected or saved Lucid paths, check installed `lucid` and `lucid2` versions and status, and verify the reported mount contains the selected path and exists in the OS mount list. An inactive other client does not invalidate a working client.
+- Log saved paths and matched mounts when a run is rejected as unavailable, and include availability context in diagnostic sessions.
+- Apply nested mount matching to destination reconnection and check the required destination folder.
+
+Automated validation: 248 core tests, one skipped, zero failures; both editions built successfully. The universal Pro DMG passed signature, notarization, staple, Gatekeeper and checksum checks. An operator reported the affected Lucid Classic-to-SMB workflow working. See [2.3 release notes](RELEASE-NOTES-2.3-BUILD-23.md) for limitations and troubleshooting.
+
 ## 2.2 (22) — 2026-09-14 — Testing prerelease
 
 - Added restoring encrypted backups from inside the app: **Restore Files…** in Settings → Encryption, and a **Restore…** button beside each encrypted destination in the plan editor. Until now this needed the restore script and a Terminal window.

@@ -1,6 +1,6 @@
 # BackupTrust Pro — User Guide
 
-Current testing release: **2.0 (20)**.
+Current testing release: **2.3 (23)**.
 
 BackupTrust Pro provides scheduled folder backups, filters, verification, overflow handling, destination locking, reconnect waiting, diagnostics, and logs. The sections below cover its direct-access, script, update, and proactive SMB preparation behavior.
 
@@ -9,6 +9,20 @@ BackupTrust Pro provides scheduled folder backups, filters, verification, overfl
 Pro is not App Sandbox-enabled and does not activate security-scoped access during a backup run. The operator must still have normal macOS read permission for the source and write permission for each destination. If a stored folder moves, use **Change…** in the plan editor and select the correct folder again.
 
 This direct-access model is intended for managed storage environments where sandbox bookmark behavior is unsuitable. It does not bypass filesystem permissions, share ACLs, Full Disk Access requirements, or offline storage.
+
+## Refresh Paths and LucidLink Troubleshooting
+
+In **Settings → Plans**, edit the affected plan and open **Diagnostics → Refresh Paths**. This checks the saved folders without starting a backup, requesting mounts, or writing test files to those folders. The result shows how many paths are available; **Settings → Logs → App Diagnostics** records the saved path, matched mount and availability for each path.
+
+Version 2.3 recognizes nested mounts. For example, a folder at `/Volumes/Example_Cloud/Example_Filespace/Docs` can belong to the mounted filesystem `/Volumes/Example_Cloud/Example_Filespace`; the grouping directory `/Volumes/Example_Cloud` is not assumed to be the mount. Bare directories left behind by disconnected volumes are not accepted as mounted filesystems. Pro uses the saved folder path directly, without substituting a bookmark-resolved location. Use **Change…** when you intend to change the saved folder.
+
+For a detected or previously identified Lucid path, Pro checks installed **lucid** and **lucid2**, captures their versions and status, and compares the reported mount with the selected folder and macOS's mounted-volume list. These checks run before backup attempts and during explicit refresh; **Run Diagnostics** includes them too. An inactive newer client does not invalidate a working Classic client. An available CLI version alone does not prove a filespace is linked or mounted.
+
+CLI checks are observational: they do not mount, unmount, restart a client or upload support data. Missing CLI tools, timeouts, or unrecognized/default-instance status produce diagnostic warnings rather than an additional backup veto. Multiple-instance configurations may need manual inspection. A linked, mounted client can still encounter cloud or filesystem errors during reads; consult the recorded status and backup results.
+
+**Run Diagnostics** goes further than Refresh Paths: it lists and reads the source, writes temporary destination probes, tries a sample copy and attempts cleanup. Its full results are saved in Logs. Normal backup attempts rejected for unavailable paths now also write App Diagnostics entries before returning.
+
+Availability still uses a directory check with a 2.5-second wait limit; the general offline indicator does not distinguish every permission error, missing folder and timeout. The **Refresh** button inside Logs only reloads log files. **Back Up Now** refreshes availability and starts a backup if checks pass.
 
 ## Pre- and Post-Backup Scripts
 

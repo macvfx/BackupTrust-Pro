@@ -1,8 +1,18 @@
 # BackupTrust Pro — Workflows
 
-Current testing release: **2.0 (20)**.
+Current testing release: **2.3 (23)**.
 
 These workflows cover direct access, scripts, and proactive SMB preparation in BackupTrust Pro.
+
+## Lucid Classic Source to SMB NAS: Check After an Upgrade
+
+1. Keep the saved source and destination if they are still correct. For example, the source may be `/Volumes/Example_Cloud/Example_Filespace/Docs` and the destination `/Volumes/Example_Archive/Backups/Docs`.
+2. Open the plan's **Diagnostics** section and click **Refresh Paths**. Read the available-path count, then inspect **Logs → App Diagnostics** for the saved paths, matched mount and Lucid status.
+3. If the paths appear available, click **Back Up Now** and inspect the resulting session log. Zero copied can mean all files were already up to date; read the scan and completion details.
+4. If the run still cannot start, use **Run Diagnostics**. This performs temporary write/copy probes on the destination and attempts cleanup. Retain both its log and the rejected-run entries.
+5. Use **Change…** only if the folder location needs changing. Repeatedly selecting the same folder will not repair a disconnected client or an unavailable NAS.
+
+Version 2.3 fixes recognition of nested mounts without treating stale mount-point directories as mounted filesystems. The affected Lucid Classic-to-SMB workflow was reported working by an operator after updating to the signed 2.3 build; this does not establish acceptance for every storage configuration or encryption/restore workflow.
 
 ## Unattended SMB Source to Two Destinations
 
