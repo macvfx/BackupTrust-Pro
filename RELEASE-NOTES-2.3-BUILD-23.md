@@ -1,6 +1,8 @@
-# BackupTrust Pro 2.3 (23)
+# BackupTrust Pro 2.3 (23) — Beta
 
-This testing prerelease fixes false offline detection for nested LucidLink mounts and improves path troubleshooting. Pro remains unsandboxed, and existing saved folders do not need to be recreated to apply the fix.
+> **Beta — for testing only.** BackupTrust Pro is not a commercial product and comes with no support and no warranty. Keep your own independent backup of all data before and while using it. You are responsible for your data.
+
+This beta fixes false offline detection for nested LucidLink mounts and improves path troubleshooting. Pro remains unsandboxed, and existing saved folders do not need to be recreated to apply the fix.
 
 ## Changes
 
