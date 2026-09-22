@@ -28,4 +28,4 @@ macOS 14 or later. Download the DMG and checksum below. Application source and p
 
 SHA-256 for `BackupTrust-Pro-2.3.dmg`:
 
-`69d1a69917118a9531219c4c35e5562c9283ed505de67e6ae34aec18684e88d6`
+`3dd52cb1f0368ca84c4256a19d11bc87fc51f82d57654538664eeb0fd43879cc`
