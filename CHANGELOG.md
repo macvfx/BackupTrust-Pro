@@ -9,7 +9,7 @@
 - **Test a Restore…** samples exactly what a restore would read.
 - About and Help state that Pro is a beta for testing only, with no support or warranty, and that keeping independent backups is the user's responsibility.
 
-Validation: 255 core tests, one skipped, zero failures, seven of them new for these fixes; both editions built. The universal Pro 2.4 (24) DMG passed Developer ID signing, Apple notarization, stapling, Gatekeeper and checksum checks. The beta notice has not been reviewed on screen in a running app. See [2.4 release notes](RELEASE-NOTES-2.4.md).
+Validation: 255 core tests, one skipped, zero failures, seven of them new for these fixes; both editions built. The universal Pro 2.4 (24) DMG passed Developer ID signing, Apple notarization, stapling, Gatekeeper and checksum checks. The beta notice was checked on screen in About, Help and the Check for Updates alert. See [2.4 release notes](RELEASE-NOTES-2.4.md).
 
 ## 2.3 (23) — 2026-09-20 — Testing prerelease
 
