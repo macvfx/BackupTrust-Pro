@@ -28,4 +28,6 @@ With a plan that includes hidden files, run a backup, then **Restore Files…** 
 
 macOS 14 or later. Download the DMG and checksum below.
 
-SHA-256 for `BackupTrust-Pro-2.4.dmg`: recorded when the build is published.
+SHA-256 for `BackupTrust-Pro-2.4.dmg`:
+
+`6a52b4400d6ea4b228aa2c4ea91dbe65c50c4b9658f1af23b8f52e9467a6726d`
