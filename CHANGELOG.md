@@ -1,5 +1,16 @@
 # BackupTrust Pro Changelog
 
+## 2.4 (24) — 2026-09-22 — Beta
+
+- Restoring an encrypted backup no longer skips hidden files. A plan that includes hidden files backs `.env` up as `.env.aea`, which is still hidden, and **Restore Files…** passed over it silently while the restore script on the destination restored it. Affects 2.2 and 2.3.
+- Mirror mode now removes hidden files that were deleted from the source.
+- Hidden files on an overflow destination are now reported as reclaimable once the same file is on a main destination.
+- What counts as backup content on a destination is decided in one place, shared by restore, mirror cleanup and overflow reclaim: BackupTrust's own folders, disk metadata, `.DS_Store` and AppleDouble `._` files are never restored, deleted or counted as failures.
+- **Test a Restore…** samples exactly what a restore would read.
+- About and Help state that Pro is a beta for testing only, with no support or warranty, and that keeping independent backups is the user's responsibility.
+
+Validation: 255 core tests, one skipped, zero failures, seven of them new for these fixes; both editions built. See [2.4 release notes](RELEASE-NOTES-2.4.md).
+
 ## 2.3 (23) — 2026-09-20 — Testing prerelease
 
 - Match the actual mounted ancestor of a selected folder, including nested Lucid mounts, while rejecting stale mount directories.
