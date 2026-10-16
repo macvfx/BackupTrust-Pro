@@ -30,3 +30,9 @@ BackupTrust Pro never reads SMB endpoints, passwords, or SMB Connect Keychain it
 ## Distribution
 
 This public repository contains operator documentation and signed beta builds. BackupTrust Pro application source code, signing material, notarization receipts, and internal engineering records are not published here.
+
+## License
+
+Free to use for your own business or work, including on client jobs. You may not sell,
+redistribute or sublicense the software. The terms are the
+[PolyForm Internal Use License 1.0.0](LICENSE).
