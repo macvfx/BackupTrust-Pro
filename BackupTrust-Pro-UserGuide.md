@@ -1,6 +1,6 @@
 # BackupTrust Pro — User Guide
 
-Current testing release: **2.3 (23)**.
+Current testing release: **2.5 (25)**.
 
 BackupTrust Pro provides scheduled folder backups, filters, verification, overflow handling, destination locking, reconnect waiting, diagnostics, and logs. The sections below cover its direct-access, script, update, and proactive SMB preparation behavior.
 

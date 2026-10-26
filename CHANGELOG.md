@@ -1,5 +1,13 @@
 # BackupTrust Pro Changelog
 
+## 2.5 (25) — 2026-10-25 — Beta
+
+- A plan's "No destination volumes are currently available" error no longer outlives the outage that caused it. Previously it was cleared only by running the plan again, which on a daily schedule could be nearly 24 hours after the share reconnected. It now clears itself as soon as the periodic availability check confirms the volume is back.
+- Added a **Refresh** button to the menu bar, next to Back Up All Now, to check volume availability immediately instead of waiting for the automatic check.
+- Version bumped from 2.4 to 2.5 for this fix, rather than a new build of 2.4, so Munki-managed Macs pick up the update.
+
+Validation: 255 core tests, one skipped, zero failures; both editions built. See [2.5 release notes](RELEASE-NOTES-2.5.md).
+
 ## 2.4 (24) — 2026-09-22 — Beta
 
 - Restoring an encrypted backup no longer skips hidden files. A plan that includes hidden files backs `.env` up as `.env.aea`, which is still hidden, and **Restore Files…** passed over it silently while the restore script on the destination restored it. Affects 2.2 and 2.3.
