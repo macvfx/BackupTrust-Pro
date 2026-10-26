@@ -21,6 +21,10 @@ Point a plan at a destination, disconnect the share, trigger a failed run (or wa
 
 - 255 core tests, one skipped, zero failures.
 - Both editions build.
-- Signing, notarization, staple, Gatekeeper and checksum results are recorded with the release.
+- Universal (arm64 + x86_64) DMG: Developer ID signed, Apple-notarized, stapled, and Gatekeeper-accepted; independent checksum validation passed.
 
 macOS 14 or later. Download the DMG and checksum below.
+
+SHA-256 for `BackupTrust-Pro-2.5.dmg`:
+
+`b6b15246d4f360f366d80e243095c8da13057f198705d8ea3ff745e02d472bc4`

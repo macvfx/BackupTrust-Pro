@@ -6,7 +6,7 @@
 - Added a **Refresh** button to the menu bar, next to Back Up All Now, to check volume availability immediately instead of waiting for the automatic check.
 - Version bumped from 2.4 to 2.5 for this fix, rather than a new build of 2.4, so Munki-managed Macs pick up the update.
 
-Validation: 255 core tests, one skipped, zero failures; both editions built. See [2.5 release notes](RELEASE-NOTES-2.5.md).
+Validation: 255 core tests, one skipped, zero failures; both editions built. The universal Pro 2.5 (25) DMG passed Developer ID signing, Apple notarization, stapling, Gatekeeper and checksum checks. See [2.5 release notes](RELEASE-NOTES-2.5.md).
 
 ## 2.4 (24) — 2026-09-22 — Beta
 
