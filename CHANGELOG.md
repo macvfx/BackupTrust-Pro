@@ -1,5 +1,15 @@
 # BackupTrust Pro Changelog
 
+## 2.7 (28) — 2026-11-09 — Beta
+
+- An hourly plan could silently stop running for a day or more. A plan woken from the destination-lock queue could lose the race for the lock and give up without a log line, and its timer was only re-armed when a run finished, so it never ran again until relaunch or wake. It now waits its turn again.
+- A scheduled run that cannot start (offline volume, expired saved access, busy window and so on) now logs the reason to the app diagnostic log and is retried after 5 minutes. Every scheduled run also logs when it fires, so an hourly plan leaves an entry every hour.
+- The menu bar no longer shows a "Next:" time in the past. An overdue plan shows about 15 seconds from now. The menu bar, plan list and Schedule tab share one calculation.
+- Menu bar buttons reorganized: Refresh and Back Up All Now are the two large buttons (Back Up All Now in blue); Settings, Logs, Help, Updates and Quit are quiet links; a one-line status shows what is happening.
+- Version bumped from 2.5 to 2.7 so Munki-managed Macs pick up the update. An internal 2.6 (26) build was never published; its changes are included here.
+
+Validation: 261 core tests, one skipped, zero failures; both editions built. See [2.7 release notes](RELEASE-NOTES-2.7.md).
+
 ## 2.5 (25) — 2026-10-25 — Beta
 
 - A plan's "No destination volumes are currently available" error no longer outlives the outage that caused it. Previously it was cleared only by running the plan again, which on a daily schedule could be nearly 24 hours after the share reconnected. It now clears itself as soon as the periodic availability check confirms the volume is back.

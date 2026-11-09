@@ -1,6 +1,6 @@
 # BackupTrust Pro — User Guide
 
-Current testing release: **2.5 (25)**.
+Current testing release: **2.7 (28)**.
 
 BackupTrust Pro provides scheduled folder backups, filters, verification, overflow handling, destination locking, reconnect waiting, diagnostics, and logs. The sections below cover its direct-access, script, update, and proactive SMB preparation behavior.
 
@@ -9,6 +9,16 @@ BackupTrust Pro provides scheduled folder backups, filters, verification, overfl
 Pro is not App Sandbox-enabled and does not activate security-scoped access during a backup run. The operator must still have normal macOS read permission for the source and write permission for each destination. If a stored folder moves, use **Change…** in the plan editor and select the correct folder again.
 
 This direct-access model is intended for managed storage environments where sandbox bookmark behavior is unsuitable. It does not bypass filesystem permissions, share ACLs, Full Disk Access requirements, or offline storage.
+
+## Confirming Scheduled Plans Are Running
+
+Open **Settings → Logs → App Diagnostics**. Every scheduled run writes a line when it fires (`scheduled run firing`), then either `N copied, M failed | session log: …` when it finishes, or `scheduled run skipped: <reason> — retrying in 300s` if it could not start. An hourly plan should write one entry an hour. A skipped run is retried after 5 minutes. Each completed run also has its own session log in the Logs folder.
+
+The **Next:** time in the menu bar is never earlier than now. A plan that is overdue shows about 15 seconds from now.
+
+## Menu Bar Buttons
+
+**Refresh** and **Back Up All Now** are the two large buttons. Refresh re-checks the source and destination volumes immediately. Back Up All Now (`Cmd+B`, blue) starts every enabled plan and reads **Backing Up…** while any plan is running. A status line above them shows "Checking volumes…", "Volumes checked at <time>" or "Backing up N plans…". Settings (`Cmd+,`), Logs, Help, Updates and Quit (`Cmd+Q`) are the smaller links below.
 
 ## Refresh Paths and LucidLink Troubleshooting
 

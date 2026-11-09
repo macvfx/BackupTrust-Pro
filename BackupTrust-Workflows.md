@@ -1,6 +1,6 @@
 # BackupTrust Pro — Workflows
 
-Current testing release: **2.5 (25)**.
+Current testing release: **2.7 (28)**.
 
 These workflows cover direct access, scripts, and proactive SMB preparation in BackupTrust Pro.
 
