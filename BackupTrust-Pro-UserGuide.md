@@ -132,6 +132,16 @@ encrypted destinations, because `.aea` spends four bytes.
 What to try in this testing build, and what to report, is in
 [ENCRYPTION-TESTING.md](ENCRYPTION-TESTING.md).
 
+## Backing Up Code Folders
+
+For a folder of code projects, three things keep a backup small and free of secrets. Enable them per plan in Settings.
+
+- **Excluded Directories.** Turn on the **Xcode & Swift** preset for `DerivedData`, `.build`, `build`, Xcode's compilation and module caches (folders ending `.noindex`, `SwiftExplicitPrecompiledModules`, `XCBuildData`), `.dSYM` and `.xcarchive`. Add **Python & Dev Tools** for `__pycache__`, `.venv` and similar. Rules match folder names only and ignore case, so `build` also skips a source folder with that name.
+- **File Filters switches** (all off by default): skip credential files (`signing.env`, `.sentryclirc`, `.env`, `.p12`, `.mobileprovision`, SSH keys), skip compiler output files (`.o`, `.swiftmodule`, `.pcm` and similar), skip P5 container blocks (`.p5b`), and skip sparse files (1 GB or more using under a tenth of that on disk).
+- **Include hidden files** if you want `.git` history in the backup. With it off, `.git`, `.venv` and `.claude` are skipped automatically.
+
+In a mirror plan, turning on a skip removes matching copies already on the destination.
+
 ## Updates and Support
 
 BackupTrust Pro includes **Check for Updates…** because it is distributed outside the Mac App Store. Nothing is downloaded or installed automatically. Use **Settings → Logs** and the correlated session and diagnostic entries when troubleshooting.
