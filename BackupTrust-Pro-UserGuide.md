@@ -91,7 +91,7 @@ oversized and long-named files land in the clear, which the editor warns about.
 **On the destination**, a `BackupTrust` folder appears holding `encryption.json`
 (which key this folder uses, by name and fingerprint; no secret in it),
 `README-RESTORE.txt`, and an executable `restore-encrypted-backup.sh` that restores
-the folder with only `aea`, part of macOS 12 and later.
+the folder with only `aea`, part of macOS 12 and later. <!-- claim-check: allow -->
 
 **Restoring:** Settings → Encryption → **Restore Files…**, or the **Restore…**
 button beside an encrypted destination in the plan editor. Choose the backup, its

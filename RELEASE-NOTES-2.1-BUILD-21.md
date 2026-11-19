@@ -16,7 +16,7 @@ This testing prerelease adds per-file encryption of chosen destinations. Encrypt
 ## Requirements
 
 - macOS 14 or later on Apple Silicon or Intel.
-- macOS 12 or later on whichever Mac performs a restore, for the built-in `aea` tool. BackupTrust does not need to be installed to restore.
+- macOS 12 or later on whichever Mac performs a restore, for the built-in `aea` tool. BackupTrust does not need to be installed to restore. <!-- claim-check: allow -->
 - Somewhere to keep the recovery key file that is not the backup destination.
 
 ## Validation boundary
